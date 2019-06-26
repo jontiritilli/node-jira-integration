@@ -2,7 +2,6 @@ const JiraApi = require('jira-client')
 const config = require('./jira-config')
 
 module.exports = function(conf = {}) {
-  const conf = {};
   if((!conf.username && !config.user) || (!conf.password && !config.pass)) {
     throw new Error('Missing username or password. Please provide both.')
   }

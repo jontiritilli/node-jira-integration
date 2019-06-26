@@ -1,8 +1,10 @@
 const Jira = require('./jiraApi')();
+const argv = require('minimist')(process.argv.slice(2));
+
 
 (async () => {
   console.info('Starting retrieve')
-  const issueNumber = 'MCM492'
+  const issueNumber = argv['issue'];
   try {
     const issue = await Jira.findIssue(issueNumber)
     console.info('got issue', issue)
