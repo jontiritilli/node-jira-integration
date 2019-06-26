@@ -1,5 +1,5 @@
 const JiraApi = require('jira-client')
-const config = require('./jira-config')
+const config = require('./config/jira-config')
 
 module.exports = function(conf = {}) {
   if((!conf.username && !config.user) || (!conf.password && !config.pass)) {

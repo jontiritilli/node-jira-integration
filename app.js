@@ -1,14 +1,17 @@
-const Jira = require('./jiraApi')();
-const argv = require('minimist')(process.argv.slice(2));
+const express = require('express');
+const pug = require('pug');
+const path = require('path');
+const router = express.Router();
+const indexRouter = require('./routes/index');
+const app = express();
+const PORT = process.env.PORT || 3359;
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', indexRouter);
 
-(async () => {
-  console.info('Starting retrieve')
-  const issueNumber = argv['issue'];
-  try {
-    const issue = await Jira.findIssue(issueNumber)
-    console.info('got issue', issue)
-  } catch (e) {
-    console.error('there was an issue', e)
-  }
-})()
+app.listen(PORT, () => {
+  console.log(`App is listening on ${PORT}`);
+})
