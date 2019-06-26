@@ -1,0 +1,2 @@
+# Node-Jira Integration software
+> The goal of this project is to create a standardized csv reading Node script that can utilize the Atlassian/Jira API to create complex story boards in an automated fashion

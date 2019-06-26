@@ -1,0 +1,14 @@
+{
+  "name": "jira-integration",
+  "version": "1.0.0",
+  "description": "Jira integration for creating and updating issues",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "author": "Jonathan Tiritilli",
+  "license": "ISC",
+  "dependencies": {
+    "jira-client": "^6.8.0"
+  }
+}
