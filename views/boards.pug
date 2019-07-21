@@ -1,0 +1,23 @@
+mixin parseObject(prop)
+  div
+    each item, key in prop
+      if typeof item === 'string' || typeof item === 'number'
+        li #{key}: #{item}
+      else if typeof item === 'object'
+        li #{key}
+          ul
+            +parseObject(item)
+
+doctype html
+html(lang='en')
+ head
+   title #{title}
+ body
+  h1 #{title}
+  div.container
+    ul
+      for board in JSON.parse(boards)
+        li Board name:
+          a(href=`/getBoard?id=${board.id}`) #{board.name}
+          ul
+            +parseObject(board)
